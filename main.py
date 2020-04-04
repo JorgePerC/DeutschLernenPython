@@ -1,3 +1,7 @@
+#Started this program with the help of: https://www.youtube.com/watch?v=vISRn5qFrkM
+#Full documentation at: https://gspread.readthedocs.io/en/latest/index.html
+
+
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -7,7 +11,7 @@ scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/au
 creds = ServiceAccountCredentials.from_json_keyfile_name('deutschLernen_credentials.json', scope)
 client = gspread.authorize(creds)
 
-sheet = client.open('Wortschatz').sheet1
+sheet = client.open('Wortschatz').worksheet("Verbs")
 
 words = sheet.get_all_records()
 
