@@ -7,3 +7,5 @@ print("Hello World")
 #Make list of duplicates
 #Delete all but one 
 
+class duplicateKiller(self):
+    pass

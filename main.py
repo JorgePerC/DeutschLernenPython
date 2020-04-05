@@ -1,7 +1,6 @@
 #Started this program with the help of: https://www.youtube.com/watch?v=vISRn5qFrkM
 #Full documentation at: https://gspread.readthedocs.io/en/latest/index.html
 
-
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -36,66 +35,55 @@ pp = pprint.PrettyPrinter()
 # pp.pprint(words)
 # pp.pprint(result)
 def transportarALibro(libro, valor, fila):
-    time.sleep(0.2) #Porque al parecer así puede
+    # Porque cuando meto mi sleep al inicio funciona
+    time.sleep(0.2) 
     print("Moviendo la fila " + str(fila) + " con valor "+ valor +" al libro: " +  libro)
+    # New sheet es el libro a dónde voy a mandar los datos
     newSheet = client.open('Wortschatz').worksheet(libro)
     rowToMove = sheet.row_values(fila)
     print("\tMoving: " + str(rowToMove))
+    # Insertamos rowToMove al inicio 
     newSheet.insert_row(rowToMove, 1)
-    #le quito una columna
-    #sheet.delete_row(fila)
+    # Elimino el libro abierto, para evitar requests que no pedí
     del newSheet
-    toDelete.append(fila)
-    print("\t\t toDelete = " + str(toDelete))
-    
-def primerIntento():
-    fila = 71 # initialization
-    while fila < sheet.row_count:
-        if (sheet.cell(fila, 4).value == "V." ):
-            transportarALibro("Verbs","V.", fila)
-            fila = fila-1
-        elif (sheet.cell(fila, 4).value == "K." ):
-            transportarALibro("Konnektor","K.", fila)
-            fila = fila-1
-        elif (sheet.cell(fila, 4).value == "P." ):
-            transportarALibro("Praposition","P.", fila)
-            fila = fila-1
-        elif (sheet.cell(fila, 4).value == "Adj." ):
-            transportarALibro("Adjektiv","Adj.", fila)
-            fila = fila-1
-        elif (sheet.cell(fila, 4).value == "Adv." ):
-            transportarALibro("Adverb","Adv.", fila)
-            fila = fila-1
-        elif (sheet.cell(fila, 4).value == "Na." ):
-            transportarALibro("Name","Na.", fila)
-            fila = fila-1
-        else:
-            print(fila)
-            fila = fila + 1
-            time.sleep(0.2)
+    # Una vez que ya lo cambié de libro, meto la fila al array
+    # de rowsToDelete para que después sea eliminada de la primera hoja
+    rowsToDelete.append(fila)
+    #print("\t\t rowsToDelete = " + str(rowsToDelete))
 
-def segundoIntento():
-    
-    todosEnum = []
+def enumVerbs():
+    columna_D_Enum = []
     ColumnaD = sheet.col_values(4)
     # Los enumerate se comportan como arrays
+    # Lo que hacen es que te cuentan las posiciones de los elementos
+    # Los vamos a ocupar para conocer las filas de los valores
+    # Diferentes a "N."
     for apuntador in enumerate (ColumnaD):
-        todosEnum.append(apuntador)
-    #print(todosEnum)
+        #Meto TODOS los elementos de mi sheet en el array
+        columna_D_Enum.append(apuntador)
+    # Puedes ver el print, para entender mejor el resultado :)
+    # print(columna_D_Enum)
     print("------------")
-    for x in todosEnum:
+
+    # Ahora creo una lista sólo con los valores diferentes a "N."
+    for x in columna_D_Enum:
         if not("N." in x):
             distintos_N.append(x)
+    # La imprimo para corroborar el resultado
     pp.pprint(distintos_N)
 
+
+#----------Main----------
+
+#Toma en cuenta lo siguiente:
+    # #Las celtas empiezan en (1,1)
     # print(distintos_N[1]) #Dato
     # print(distintos_N[1][0]) #Row
-#----Main----
+
 distintos_N = []
-toDelete = []
-segundoIntento()
-# #Las celtas empiezan en (1,1)
-# print (sheet.cell(1,1).value)
+rowsToDelete = []
+enumVerbs()
+
 try:
     for x in distintos_N:
         if (x[1] == "V."):
@@ -124,10 +112,10 @@ finally:
     #Llegamos hasta -1 para tener la posicion 0
     #Del array distintos_N
     
-    for x in range (len(toDelete)-1, -1,-1):
-        sheet.delete_row(toDelete[x])
+    for x in range (len(rowsToDelete)-1, -1,-1):
+        sheet.delete_row(rowsToDelete[x])
         time.sleep(0.2)
-        print("Just deleted row:" + str(toDelete[x]))
+        print("Just deleted row:" + str(rowsToDelete[x]))
         #sheet.delete_row(distintos_N[x][0]+1)
     print()
     print("But is now clean")
