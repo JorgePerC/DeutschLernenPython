@@ -73,7 +73,12 @@ def enumVerbs():
     pp.pprint(distintos_N)
 
 
-#----------Main----------
+#   __  __       _       
+#  |  \/  |     (_)      
+#  | \  / | __ _ _ _ __  
+#  | |\/| |/ _` | | '_ \ 
+#  | |  | | (_| | | | | |
+#  |_|  |_|\__,_|_|_| |_|     
 
 #Toma en cuenta lo siguiente:
     # #Las celtas empiezan en (1,1)
@@ -101,7 +106,7 @@ try:
         else:
             time.sleep(.2)
             pass
-except  gspread.exceptions.APIError as error:
+except gspread.exceptions.APIError as error:
     print("Its an incomplete check up, CAUSED BY: ")
     print(error)
 
