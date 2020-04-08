@@ -26,7 +26,7 @@ def iniciarApp(diccionario):
     # Lo voy a meter.
 
     while not(len(diccionario) == 0): #Aquí corregí un paréntesis. Antes "not(len(diccionario)) == 0:"
-        filaAleman = diccionario.pop(1)
+        filaAleman = diccionario.pop(-1)
         palabraAleman = filaAleman.get("Wort")
         palabraEspñaol = filaAleman.get("Übersetzung")
         palabraGenero = filaAleman.get("Artikel")
@@ -68,7 +68,7 @@ if respuestaTry == "si":
 else:
     print(listaErrores1)
     
-#Funcionó bien una vez, después:
+# Funcionó bien una vez, después:
 # TypeError: argument of type 'NoneType' is not iterable
 # Fue porque modifiqué el docs, jajaja
 
