@@ -53,7 +53,7 @@ def transportarALibro(libro, valor, fila):
 
 def enumVerbs():
     columna_D_Enum = []
-    ColumnaD = sheet.col_values(4)
+    ColumnaD = sheet.col_values(1)
     # Los enumerate se comportan como arrays
     # Lo que hacen es que te cuentan las posiciones de los elementos
     # Los vamos a ocupar para conocer las filas de los valores
@@ -72,6 +72,21 @@ def enumVerbs():
     # La imprimo para corroborar el resultado
     pp.pprint(distintos_N)
 
+def clasificar(libro, valor, fila):
+    # Porque cuando meto mi sleep al inicio funciona
+    time.sleep(0.2) 
+    print("Moviendo la fila " + str(fila) + " con valor "+ valor +" al libro: " +  libro)
+    # New sheet es el libro a dónde voy a mandar los datos
+    newSheet = client.open('Wortschatz').worksheet(libro)
+    rowToMove = sheet.row_values(fila)
+    print("\tMoving: " + str(rowToMove))
+    # Insertamos rowToMove al inicio 
+    newSheet.insert_row(rowToMove, 1)
+    # Elimino el libro abierto, para evitar requests que no pedí
+    del newSheet
+    # Una vez que ya lo cambié de libro, meto la fila al array
+    # de rowsToDelete para que después sea eliminada de la primera hoja
+    sheet.delete_row(fila)
 
 #   __  __       _       
 #  |  \/  |     (_)      
@@ -90,6 +105,8 @@ rowsToDelete = []
 enumVerbs()
 
 try:
+    # Le aplique el reverse, se supone que 
+    distintos_N.reverse()
     for x in distintos_N:
         if (x[1] == "V."):
             transportarALibro("Verbs","V.", x[0]+1)

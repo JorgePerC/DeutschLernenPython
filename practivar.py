@@ -15,27 +15,44 @@ def while_ejemplo_1():
     #     |     |
     #     └ — — ┘
     # Supon que cada línea es una es un paso 
-    pass
+    x= 0
+    while (x<6):
+        print ("Avanzar")
+        x+=1
+    x= 0
+    while x < 4:
+        print("Gira derecha")
+        y= 0
+        while (y <3):
+            print ("Avanzar")
+            y+=1
+        x+=1
+    x = 0
+    while x< 2:
+        print("Avanzar")
+        x+=1
+
 def while_ejemplo_2():
     while True:
         print("Hola")
         # 1
-        # if input("") == "stop":
-        #     break
-        while True:
-            print("\tAdentro")
+        if input("") == "stop":
+            break
+        x = 0
+        while x <3:
+            print("\tAdentro" + str(x))
+            x+=1
         #while False:
-            # Qué pasa si se vuelve un False?
-            
+            # Qué pasa si se vuelve un False?        
 
 #---FOR--
 def for_ejemplo_1():
     
     #Muestra la fila 3
-    print()
+    print(grid[2])
 
     #Muestra la celda D2
-    print()
+    print(grid[1][3])
 
     # Cuando trabajas con fors, hay dos maneras de acceder a los datos
     # Mostrar un grid ordenado:
@@ -49,7 +66,10 @@ def for_ejemplo_1():
 def for_ejemplo_2():
     # Cuenta del 00-99
     # No se vale sumar
-    pass
+    # Minimo 2 fors
+    for decenas in range (0,10):
+        for unidades in range (0,10):
+            print(str(decenas) + str(unidades))
 
 def for_ejemplo_3():
     # Cuando trabajas con fors, hay dos maneras de acceder a los datos
