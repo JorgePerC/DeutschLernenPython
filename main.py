@@ -81,7 +81,7 @@ def clasificar(libro, valor, fila):
     rowToMove = sheet.row_values(fila)
     print("\tMoving: " + str(rowToMove))
     # Insertamos rowToMove al inicio 
-    newSheet.insert_row(rowToMove, 1)
+    newSheet.insert_row(rowToMove, 2)
     # Elimino el libro abierto, para evitar requests que no pedí
     del newSheet
     # Una vez que ya lo cambié de libro, meto la fila al array
@@ -101,7 +101,6 @@ def clasificar(libro, valor, fila):
     # print(distintos_N[1][0]) #Row
 
 distintos_N = []
-rowsToDelete = []
 enumVerbs()
 
 try:
@@ -109,17 +108,17 @@ try:
     distintos_N.reverse()
     for x in distintos_N:
         if (x[1] == "V."):
-            transportarALibro("Verbs","V.", x[0]+1)
+            clasificar("Verbs","V.", x[0]+1)
         elif (x[1] == "K."):
-            transportarALibro("Konnektor","K.", x[0]+1)
+            clasificar("Konnektor","K.", x[0]+1)
         elif (x[1] == "P."):
-            transportarALibro("Praposition","P.", x[0]+1)
+            clasificar("Praposition","P.", x[0]+1)
         elif (x[1] == "Adj."):
-            transportarALibro("Adjektiv","Adj.", x[0]+1)
+            clasificar("Adjektiv","Adj.", x[0]+1)
         elif (x[1] == "Adv."):
-            transportarALibro("Adverb","Adv.", x[0]+1)
+            clasificar("Adverb","Adv.", x[0]+1)
         elif (x[1] == "Na."):
-            transportarALibro("Name","Na.", x[0]+1)
+            clasificar("Name","Na.", x[0]+1)
         else:
             time.sleep(.2)
             pass
@@ -133,11 +132,4 @@ finally:
     #Para no modificar las posiciones
     #Llegamos hasta -1 para tener la posicion 0
     #Del array distintos_N
-    
-    for x in range (len(rowsToDelete)-1, -1,-1):
-        sheet.delete_row(rowsToDelete[x])
-        time.sleep(0.2)
-        print("Just deleted row:" + str(rowsToDelete[x]))
-        #sheet.delete_row(distintos_N[x][0]+1)
-    print()
     print("But is now clean")
