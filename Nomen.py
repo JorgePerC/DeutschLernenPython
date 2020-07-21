@@ -21,3 +21,5 @@ class Nomen:
         self.plural
         #Classification 
         self.einstufung
+
+    
