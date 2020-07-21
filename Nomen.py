@@ -17,13 +17,4 @@ class Nomen (Worte):
 
         # Do NOT CHANGE
         # Parent attributes and methods
-        self.Worte = Worte.__init__(self, "Nomen")
-
-        #Actual noun
-        self.wort = self.selectedRow["Wort"].values
-        #Article
-        self.artikel = self.selectedRow["Artikel"].values
-        #Noun in plural form
-        self.plural = self.selectedRow["Plural"].values 
-        #Classification 
-        self.einstufung = self.selectedRow["Einstufung"].values
+        self.Worte = Worte.__init__(self, "Nomen", "Wort")

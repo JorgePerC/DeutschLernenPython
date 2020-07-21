@@ -7,14 +7,22 @@ as much as you want, there is no problem :)
 from Connection import SheetConnection
 from Worte import Worte
 from Nomen import Nomen
+from Verb import Verb
+import pandas as pd
 
 # conectionTest = SheetConnection("Verbs")
-# print(conectionTest.getAttributes())
+# df = conectionTest.getDataWithPandas()
 
-# palabra = Worte ()
-# print(palabra.selectedRow)
-# print(palabra.getUbersetzung())
+# print(df.keys().values)
+# print(df.sample().values)
 
-sustantivo = Nomen()
-print("palabra: {}".format(sustantivo.wort))
-print("palabra: {}".format(sustantivo.artikel))
+palabra = Worte ()
+print(palabra.attributes)
+print(palabra.get_Ubersetzung())
+
+# sustantivo = Nomen()
+# print("palabra: {}".format(sustantivo.wort))
+# print("palabra: {}".format(sustantivo.artikel))
+print("---------------")
+verbo = Verb()
+print(verbo.attributes)

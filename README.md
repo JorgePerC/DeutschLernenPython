@@ -11,8 +11,11 @@ Parcticar verbos Partizip sein/haben
 
 ## Pendientes:
 
-* [ ] Verificar clase Connection
+* [x] Verificar clase Connection
 * [ ] Implementar clase Connection en codigo viejo
+* [ ] Usar un mismo name scheme (snake_Case) para estar más de acuerdo al API
+* [ ] En el sheets, verificar que todos los verbos estén bien clasificados
+respecto a si son regulares en presente
 
 
 ### Verbos:
