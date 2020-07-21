@@ -14,7 +14,7 @@ class DuplicateKiller:
         
     def __init__(self):
         scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-        creds = ServiceAccountCredentials.from_json_keyfile_name('Credentials/deleterCredentials.json', scope)
+        creds = ServiceAccountCredentials.from_json_keyfile_name('Credentials/deleter_credentials.json', scope)
         self.client = gspread.authorize(creds)
 
     def enumerateBasicValues(self, lista: list):
