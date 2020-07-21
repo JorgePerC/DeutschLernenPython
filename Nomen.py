@@ -16,13 +16,14 @@ class Nomen (Worte):
     def __init__(self):
 
         # Do NOT CHANGE
-        self.Worte = Worte (self, "Nomen")
+        # Parent attributes and methods
+        self.Worte = Worte.__init__(self, "Nomen")
 
         #Actual noun
-        self.wort = self.Worte.selectedRow["Wort"]
+        self.wort = self.selectedRow["Wort"].values
         #Article
-        self.artikel = self.Worte.selectedRow["Artikel"]
+        self.artikel = self.selectedRow["Artikel"].values
         #Noun in plural form
-        self.plural = self.Worte.selectedRow["Plural"] 
+        self.plural = self.selectedRow["Plural"].values 
         #Classification 
-        self.einstufung = self.Worte.selectedRow["Einstufung"]
+        self.einstufung = self.selectedRow["Einstufung"].values

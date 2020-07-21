@@ -39,3 +39,5 @@ class Worte:
     def get_Attributes(self):
         return self.connection.getAttributes()
         
+
+    # Add a word
