@@ -5,7 +5,11 @@ as much as you want, there is no problem :)
 """
 
 from Connection import SheetConnection
+from Worte import Worte
 
+# conectionTest = SheetConnection("Verbs")
+# print(conectionTest.getAttributes())
 
-conectionTest = SheetConnection("Verbs")
-print(conectionTest.getDataWithPandas())
+palabra = Worte ()
+print(palabra.selectedRow)
+print(palabra.getUbersetzung())

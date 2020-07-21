@@ -36,6 +36,14 @@ class SheetConnection:
     def getData(self):
         return self.sheet.get_all_records()
     # Method to update the data
-    # Method to know all the characteristics to fill
+    
+    # Method to know all the characteristics to fill 
+    # Aka. attributes (sheet columns)
+    def getAttributes (self):
+        # Can also do it with pandas
+        return self.sheet.row_values(1)
+
     # Method to close connection?
-    # Verify if "casilla de verificación" returns a boolean
+    # Verify if "casilla de verificación" returns a boolean. Not acctually
+
+    #Method to lowerCase and capitalize s

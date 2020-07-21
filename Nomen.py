@@ -1,4 +1,4 @@
-from Connection import Connection
+from Worte import Worte
 import pandas as pd
 """
 Code for object Nomen, sustantive in english.
@@ -6,20 +6,23 @@ Sorry for the variable names in german
 but one must practice
 """
 
-class Nomen:
+# https://www.geeksforgeeks.org/inheritance-in-python/
+class Nomen (Worte):
     #Static variable for class Nomen
-    GSconnection = Connection()
+    # Show I make worte a static variable?
+        # No, because each word changes
+        # Yes, to avoid multuple connections -> therefore requests
 
     def __init__(self):
-        
-        
-        #Article
-        self.artikel
-        #Actual noun
-        self.wort
-        #Noun in plural form
-        self.plural
-        #Classification 
-        self.einstufung
 
-    
+        # Do NOT CHANGE
+        self.Worte = Worte (self, "Nomen")
+
+        #Actual noun
+        self.wort = self.Worte.selectedRow["Wort"]
+        #Article
+        self.artikel = self.Worte.selectedRow["Artikel"]
+        #Noun in plural form
+        self.plural = self.Worte.selectedRow["Plural"] 
+        #Classification 
+        self.einstufung = self.Worte.selectedRow["Einstufung"]
