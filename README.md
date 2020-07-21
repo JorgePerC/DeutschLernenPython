@@ -16,11 +16,17 @@ Parcticar verbos Partizip sein/haben
 * [ ] Usar un mismo name scheme (snake_Case) para estar más de acuerdo al API
 * [ ] En el sheets, verificar que todos los verbos estén bien clasificados
 respecto a si son regulares en presente
+* [ ] Completar Updater
+* [ ] Mejorar códigos de preguntas (adjetivos, korper)
+* [ ] *La hoja "Korper" ya NO EXISTE*, cambiar implementación con Einstufung
+* [ ] *La hoja "Partizip" ya NO EXISTE*, cambiar implementación con Verbs -> Perfekt
+* [ ] Diferenciar entre Lebensmittel y Getränk
 
 
 ### Verbos:
 * [ ] Conjugador de verbos regulares
-
+* [ ] Conjugador automático en Partizip 
+* [ ] Completar partizip
 ### Sustantivos:
 * [ ] Añadir elementos a la lista
 * [ ] Predeterminar el género basado en las reglas
