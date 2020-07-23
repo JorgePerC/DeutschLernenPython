@@ -42,9 +42,6 @@ class Worte:
         
     def get_Ubersetzung(self):
         return self.ubersetzung
-
-    def get_Attributes(self):
-        return self.connection.getAttributes()
         
     def define_Attributes(self, attributes : list, values: list):
         mergedItems = []

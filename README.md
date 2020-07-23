@@ -30,6 +30,7 @@ respecto a si son regulares en presente
 ### Sustantivos:
 * [ ] Añadir elementos a la lista
 * [ ] Predeterminar el género basado en las reglas
+* [ ] Añadir atributo de dificultad
 
 
 
