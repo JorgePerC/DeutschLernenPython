@@ -33,7 +33,7 @@ class Worte:
         # Column 
         desiredWord = selectedRow.iat[0,0]
         
-        # Searc for all the registers that have the same 
+        # Search for all the registers that have the same 
         # desiredWord
         unfilteredQuery = allRegisters.loc[allRegisters[desired_column] == desiredWord]
         
@@ -44,6 +44,7 @@ class Worte:
         return self.ubersetzung
         
     def define_Attributes(self, attributes : list, values: list):
+        # Now I know I could have used zip
         mergedItems = []
         for i in range (len(attributes)): 
             mergedItems.append((attributes[i], values[i]))

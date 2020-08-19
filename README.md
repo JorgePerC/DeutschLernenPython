@@ -19,14 +19,16 @@ respecto a si son regulares en presente
 * [ ] Completar Updater
 * [ ] Mejorar códigos de preguntas (adjetivos, korper)
 * [ ] *La hoja "Korper" ya NO EXISTE*, cambiar implementación con Einstufung
-* [ ] *La hoja "Partizip" ya NO EXISTE*, cambiar implementación con Verbs -> Perfekt
+* [ ] *La hoja "Perfekt" ya NO EXISTE*, cambiar implementación con Verbs -> Perfekt 
 * [ ] Diferenciar entre Lebensmittel y Getränk
-
+* [ ] Crear clase sujeto
 
 ### Verbos:
-* [ ] Conjugador de verbos regulares
+* [X] Conjugador de verbos regulares
 * [ ] Conjugador automático en Partizip 
-* [ ] Completar partizip
+* [ ] Completar partizip en sheets
+* [ ] Mover la condición si termina en d o t
+* [ ] Cambiar implementación a sujeto
 ### Sustantivos:
 * [ ] Añadir elementos a la lista
 * [ ] Predeterminar el género basado en las reglas

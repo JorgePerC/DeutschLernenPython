@@ -28,6 +28,7 @@ class ArtikelPredicter:
         If [U], USUALLY applies
         Rules that don't always apply, will be written in different 
         methods
+        TODO: Use str.startswith()
     """
     
     def __init__(self):
@@ -57,13 +58,6 @@ class ArtikelPredicter:
         if Nomen[-3:] == "ner":
             return True
         elif Nomen[-5:] == "ismus":
-            return True
-        
-        elif Nomen[-2:] in ["er", "or"]:
-            return True
-        elif Nomen[-4:] == "ling":
-            return True
-        elif Nomen[-3:] == "ist":
             return True
         return False
 
@@ -123,4 +117,11 @@ class ArtikelPredicter:
         pass
 
     def itCouldBe (self):
+                
+        if Nomen[-2:] in ["er", "or"]:
+            return "der"
+        elif Nomen[-4:] == "ling":
+            return "der"
+        elif Nomen[-3:] == "ist":
+            return "der"
         pass
